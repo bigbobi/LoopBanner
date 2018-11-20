@@ -19,15 +19,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        bvTest.getPager().adapter=object : BannerAdapter<Int>(this,testList,bvTest){
+        bvTest.setAdapter(object : BannerAdapter<Int>(this, testList, bvTest) {
             override fun instantiateItem(container: ViewGroup, position: Int): Any {
                 val v = View.inflate(context, R.layout.item_test, null)// your item layout
                 v.tvTest.text = getItemData(position)!!.toString()
                 container.addView(v)
                 return v
             }
-        }
-        bvTest.getPager().currentItem=bvTest.originPosition
-        bvTest.getPager().offscreenPageLimit=if (bvTest.getPager().adapter!!.count>=3) 3 else bvTest.getPager().adapter!!.count
+        })
+
     }
 }
