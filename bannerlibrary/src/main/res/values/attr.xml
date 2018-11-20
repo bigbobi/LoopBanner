@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerView">
+        <attr name="singleModel" format="boolean"/>
+        <attr name="marginStart" format="dimension"/>
+        <attr name="marginEnd" format="dimension"/>
+    </declare-styleable>
+</resources>
