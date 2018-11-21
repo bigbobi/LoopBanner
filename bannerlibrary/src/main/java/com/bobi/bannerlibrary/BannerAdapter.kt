@@ -31,11 +31,11 @@ abstract class BannerAdapter<T> : PagerAdapter {
     }
 
     fun getList(): List<T> {
-        return ArrayList(data)
+        return ArrayList(data).distinct()
     }
 
     fun fixData(data: MutableList<T>, bannerView: BannerView):MutableList<T>{
-        if (data.size >= 1) {
+        if (data.size > 2) {
             if (bannerView.originPosition == 1) {
                 data.add(0, data[data.size - 1])
                 data.add(data[1])

@@ -40,11 +40,13 @@ class BannerView @JvmOverloads constructor(context: Context, attrs: AttributeSet
             override fun onPageScrollStateChanged(state: Int) {
                 if (state != ViewPager.SCROLL_STATE_IDLE) {
                     pageHandler.removeMessages(pageHandler.nextPage)//当还处于滑动中时，取消发送轮询消息
-                    if (index <= originPosition - 1 || index >= pager.adapter!!.count - originPosition) {//如果当前的位置小于等于实际上的第一个item的位置或者大于实际上的最后一个item的位置就执行跳转
-                        if (index <=  originPosition-1) {
-                            pager.setCurrentItem(pager.adapter!!.count - (originPosition + 1), false)//该跳转方法是不会有跳转动画执行的
-                        } else if (index >= pager.adapter!!.count - originPosition) {
-                            pager.setCurrentItem(originPosition, false)
+                    if (pager.adapter!!.count > 2) {
+                        if (index <= originPosition - 1 || index >= pager.adapter!!.count - originPosition) {//如果当前的位置小于等于实际上的第一个item的位置或者大于实际上的最后一个item的位置就执行跳转
+                            if (index <= originPosition - 1) {
+                                pager.setCurrentItem(pager.adapter!!.count - (originPosition + 1), false)//该跳转方法是不会有跳转动画执行的
+                            } else if (index >= pager.adapter!!.count - originPosition) {
+                                pager.setCurrentItem(originPosition, false)
+                            }
                         }
                     }
                 }
@@ -70,7 +72,9 @@ class BannerView @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
     fun setAdapter(adapter: BannerAdapter<*>) {
         pager.adapter = adapter
-        pager.currentItem = originPosition
+        if (pager.adapter!!.count > 2) {
+            pager.currentItem = originPosition
+        }
         pager.offscreenPageLimit = if (adapter.count >= 3) 3 else adapter.count
     }
 
