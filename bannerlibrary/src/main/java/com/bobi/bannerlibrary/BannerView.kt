@@ -5,9 +5,11 @@ import android.os.Handler
 import android.os.Message
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
 import kotlinx.android.synthetic.main.view_viewpage.view.*
 import java.lang.ref.WeakReference
 
@@ -54,7 +56,9 @@ class BannerView @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
             override fun onPageSelected(position: Int) {
                 sendLoopMsg()
+                Log.e("preIndex:", index.toString())
                 index = position
+                Log.e("nextIndex:", index.toString())
             }
 
         })

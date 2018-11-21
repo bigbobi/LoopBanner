@@ -35,14 +35,16 @@ abstract class BannerAdapter<T> : PagerAdapter {
     }
 
     fun fixData(data: MutableList<T>, bannerView: BannerView):MutableList<T>{
-        if (bannerView.originPosition==1){
-            data.add(0, data[data.size - 1])
-            data.add(data[1])
-        }else{
-            data.add(0, data[data.size - 1])
-            data.add(0, data[data.size - 2])
-            data.add(data[2])
-            data.add(data[3])
+        if (data.size >= 1) {
+            if (bannerView.originPosition == 1) {
+                data.add(0, data[data.size - 1])
+                data.add(data[1])
+            } else {
+                data.add(0, data[data.size - 1])
+                data.add(0, data[data.size - 2])
+                data.add(data[2])
+                data.add(data[3])
+            }
         }
         return data
     }
