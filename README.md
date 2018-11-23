@@ -6,7 +6,7 @@
 
 Gradle:
 
-implementation 'com.github.bigbobi:LoopBanner:1.0.1'
+implementation 'com.github.bigbobi:LoopBanner:1.0.2.1'
 
 具体使用：
 
