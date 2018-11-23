@@ -27,4 +27,7 @@ marginStart和marginEnd代表左右2边分别展示多少内容
 
 2、代码中使用
 
-(1)创建Adapter
+创建Adapter
+![image](https://github.com/bigbobi/LoopBanner/blob/master/%E5%88%9B%E5%BB%BAAdapter.png)
+
+就酱,收工
