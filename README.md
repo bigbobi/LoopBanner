@@ -9,4 +9,22 @@ Gradle:
 implementation 'com.github.bigbobi:LoopBanner:1.0.1'
 
 具体使用：
-有空再补，可以先看看demo中的使用方式
+
+1、布局中的使用
+
+<com.bobi.bannerlibrary.BannerView
+
+        android:id="@+id/bvTest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:marginEnd="40dp"
+        app:marginStart="40dp"
+        app:singleModel="false" />
+
+singleModel属性代表是否显示多个item
+
+marginStart和marginEnd代表左右2边分别展示多少内容
+
+2、代码中使用
+
+(1)创建Adapter
